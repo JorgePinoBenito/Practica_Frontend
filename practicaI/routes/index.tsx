@@ -12,7 +12,7 @@ export default function Home() {
       <a href="https://www.nebrija.com/">
         <p id="broma">
           !Solo te pido que nunca <br />
-          curses nada aqui!
+          curses nada aquí!
         </p>
       </a>
       <img id="imgindex" src={asset("./tigre.png")} />
