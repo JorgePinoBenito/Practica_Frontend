@@ -302,7 +302,7 @@ html {
   top: 50%;
   right: 180px;
   transform: translateY(-50%);
-  text-shadow: /*pon neon*/ 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00,
+  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00,
     0 0 40px #00ff00, 0 0 80px #00ff00, 0 0 90px #00ff00, 0 0 100px #00ff00,
     0 0 150px #00ff00;
 }
@@ -396,7 +396,6 @@ body {
   right: 20px;
   left: 300px;
   top: 700px;
-  /*añadele algo de estilo con un border-radius y un padding*/
   border: 5px solid white;
   border-radius: 10px;
   padding: 10px;
@@ -450,8 +449,6 @@ body {
   color: black;
   font-size: 36px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  /*transform: translateY(-200px);
-  transition: transform 0.5s ease;*/
   position: relative;
   top: 30px;
   transition: top 0.5s ease;
