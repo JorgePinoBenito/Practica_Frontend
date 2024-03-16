@@ -4,12 +4,6 @@ import { Heroe } from "../types.ts";
 import Axios from "npm:axios";
 import HeroesList from "../components/HeroesList.tsx";
 
-/*type HeroeData = {
-  name: string;
-  image: string;
-  sound: string;
-};*/
-
 const fetchData = async (name: string | undefined): Promise<Heroe[]> => {
   try {
     if (typeof name !== "string" || name === "" || name === undefined) {
@@ -37,15 +31,7 @@ export const handler: Handlers = {
       const url = new URL(req.url);
       const name = url.searchParams.get("name") || undefined;
       const heroe = await fetchData(name);
-      //si no hay heroe, redirigir a la pagina de busqueda
-      /*if (!heroe || heroe.length === 0) {
-        return new Response("", {
-          status: 303,
-          headers: {
-            Location: "/heroesearch",
-          },
-        });
-      }*/
+
       return ctx.render(heroe);
     } catch (error) {
       console.error(error);

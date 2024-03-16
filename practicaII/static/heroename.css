@@ -35,8 +35,7 @@
   margin-left: 300px;
 }
 
-/*audio*/
 .heroename audio {
   width: 400px;
-  height: 60px; /* Ajusta la altura del reproductor de audio según sea necesario */
+  height: 60px;
 }

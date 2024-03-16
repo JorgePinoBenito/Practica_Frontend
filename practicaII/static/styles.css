@@ -4,6 +4,7 @@
 @import url("/heroename.css");
 @import url("/searchform.css");
 @import url("/addform.css");
+@import url("/deleteform.css");
 
 h1 {
   margin-bottom: 20px;

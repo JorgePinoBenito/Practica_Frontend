@@ -3,27 +3,16 @@ import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
 import { Heroe } from "../types.ts";
 import Axios from "npm:axios";
 
-/*type Data = {
-  name: string;
-  image: string;
-  sound: string;
-};
-
-type Data2 = {
-  data: Data[];
-};*/
-
 const fetchData = async (): Promise<Heroe[]> => {
   try {
     const response = await Axios.get<Heroe[]>(
-      `https://supermondongo.deno.dev`,
+      `https://supermondongo.deno.dev/`,
     );
 
     if (response.status !== 200) {
       throw new Error("Error");
     }
 
-    //devolver nombre, imagen y sonido
     return response.data;
   } catch (e) {
     console.error(e);
@@ -43,7 +32,6 @@ export const handler: Handlers = {
   },
 };
 
-//crea la pagina con los datos obtenidos
 export default function Home(props: PageProps<Heroe[]>) {
   return (
     <div class="home">

@@ -1,7 +1,7 @@
 import { FunctionComponent } from "preact";
 
 type MenuProps = {
-  selected: "Heroes" | "Buscar Heroe" | "Añadir Heroe";
+  selected: "Heroes" | "Buscar Heroe" | "Añadir Heroe" | "Eliminar Heroe";
 };
 const Menu: FunctionComponent<MenuProps> = ({ selected }) => {
   return (
@@ -15,8 +15,15 @@ const Menu: FunctionComponent<MenuProps> = ({ selected }) => {
       >
         Buscar Heroe
       </a>
-      <a href="/add" class={selected === "Añadir Heroe" ? "selected" : ""}>
+      <a href="/addheroe" class={selected === "Añadir Heroe" ? "selected" : ""}>
         Añadir Heroe
+      </a>
+
+      <a
+        href="/deleteheroe"
+        class={selected === "Eliminar Heroe" ? "selected" : ""}
+      >
+        Eliminar Heroe
       </a>
     </div>
   );

@@ -21,12 +21,9 @@ const fetchData = async (name: string | undefined): Promise<Heroe[]> => {
 
     return response.data;
   } catch (e) {
-    console.error(e);
     throw new Error("Error");
   }
 };
-
-//formulario para enviar datos y despues hacer fetchdata con esos datos y mostrarlos
 
 export const handler: Handlers = {
   GET: async (req: Request, ctx: FreshContext<unknown, Heroe[]>) => {

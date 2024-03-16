@@ -8,37 +8,57 @@ import { JSX } from "preact";
 
 export const AddForm: FunctionComponent = () => {
   const [error, setError] = useState<string>("");
+  const [successMessage, setSuccessMessage] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [image, setImage] = useState<string>("");
   const [sound, setSound] = useState<string>("");
   const [creator, setCreator] = useState<string>("");
 
-  const submitHandler = (e: JSX.TargetedEvent<HTMLFormElement, Event>) => {
+  const submitHandler = async (
+    e: JSX.TargetedEvent<HTMLFormElement, Event>,
+  ) => {
     e.preventDefault();
-    const errorMsg: string[] = [];
-    if (name === "") {
-      errorMsg.push("You must provide a name");
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("image", image);
+    formData.append("sound", sound);
+    formData.append("creator", creator);
+
+    if (name === "" || image === "" || sound === "" || creator === "") {
+      setError("You must provide all the fields");
+      setSuccessMessage("");
+      return;
     }
-    if (image === "") {
-      errorMsg.push("You must provide an image");
-    }
-    if (sound === "") {
-      errorMsg.push("You must provide a sound");
-    }
-    if (creator === "") {
-      errorMsg.push("You must provide a creator");
-    }
-    if (errorMsg.length > 0) setError(errorMsg.join(" | "));
-    else {
-      setError("");
-      e.currentTarget.submit();
+
+    try {
+      const response = await fetch("/addheroe", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        setSuccessMessage("Superhero added successfully!");
+        setName("");
+        setImage("");
+        setSound("");
+        setCreator("");
+        setError("");
+      } else {
+        setError("Error adding superhero");
+        setSuccessMessage("");
+      }
+    } catch (error) {
+      console.error(error);
+      setError("Error adding superhero");
+      setSuccessMessage("");
     }
   };
+
   return (
     <div class="addform">
       <h1>Añadir heroe</h1>
       <form
-        action="/add"
+        action="/addheroe"
         method="POST"
         onSubmit={submitHandler}
       >
@@ -115,6 +135,9 @@ export const AddForm: FunctionComponent = () => {
           </button>
         </div>
         {error !== "" && <div class="span-2 error">{error}</div>}
+        {successMessage !== "" && (
+          <div class="span-2 success">{successMessage}</div>
+        )}
       </form>
     </div>
   );
