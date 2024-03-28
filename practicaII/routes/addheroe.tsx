@@ -45,8 +45,7 @@ export const handler: Handlers = {
       return new Response("", {
         status: 201,
         headers: {
-          //redirige a la pagina del heroe heroename
-          Location: `/heroename?name=${data.name}`,
+          Location: "/",
         },
       });
     } catch (error) {
