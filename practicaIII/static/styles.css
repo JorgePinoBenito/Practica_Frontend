@@ -1,0 +1,76 @@
+@import url("/menu.css");
+@import url("/addform.css");
+@import url("/loverslist.css");
+@import url("/lovername.css");
+@import url("/addform.css");
+@import url("/deleteform.css");
+@import url("/filter.css");
+@import url("/loginform.css");
+@import url("/postcommentform.css");
+@import url("index.css");
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 500;
+  color: #343a40;
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: #343a40;
+  background-color: #f8f9fa;
+}
+
+/* styles.css */
+.filterlovers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif; /* Utiliza una fuente genérica */
+}
+
+.filterlovers h1 {
+  font-size: 24px; /* Tamaño del encabezado */
+  margin-bottom: 20px; /* Margen inferior para separar el encabezado del formulario */
+}
+
+.filterlovers form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filterlovers input[type="text"] {
+  padding: 8px 10px; /* Añade espacio interno al input */
+  margin-bottom: 10px; /* Margen inferior */
+  border: 1px solid #ccc; /* Añade un borde gris */
+  border-radius: 4px; /* Añade bordes redondeados */
+  width: 300px;
+}
+
+.filterlovers input[type="text"]:focus {
+  outline: none; /* Elimina el resaltado del input al hacer focus */
+  border-color: #007bff; /* Cambia el color del borde al hacer focus */
+}
+
+.filterlovers button {
+  padding: 8px 20px; /* Añade espacio interno al botón */
+  border: none; /* Elimina el borde */
+  background-color: #007bff; /* Color de fondo azul */
+  color: #fff; /* Color de texto blanco */
+  border-radius: 4px; /* Añade bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+}
+
+.filterlovers button:hover {
+  background-color: green; /* Cambia el color de fondo al pasar por encima */
+}
+
+.filterlovers button:focus {
+  outline: none; /* Elimina el resaltado al hacer focus */
+}

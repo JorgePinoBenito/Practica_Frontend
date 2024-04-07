@@ -1,0 +1,8 @@
+.index {
+  text-align: center; /* Centrar el texto dentro del div */
+}
+
+.index a {
+  display: inline-block; /* Hacer que los enlaces se comporten como bloques en línea */
+  margin-top: 10px; /* Espacio entre los enlaces */
+}
