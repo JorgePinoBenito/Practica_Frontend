@@ -1,10 +1,11 @@
-import RegisterForm from "../islands/RegisterForm.tsx";
+import RegisterForm from "../islands/AddForm.tsx";
 import { FreshContext, Handlers } from "$fresh/server.ts";
 import axios from "npm:axios";
 import {
   Cookie,
   setCookie,
 } from "https://deno.land/std@0.221.0/http/cookie.ts";
+import { Comment } from "../types.ts";
 
 type FormData = {
   name: string;
@@ -41,7 +42,7 @@ export const handler: Handlers = {
         description: formData.get("description") as string,
         hobbies: formData.getAll("hobbies") as string[],
         photo: formData.get("photo") as string,
-        comments: [],
+        comments: formData.get("comments") as unknown as Comment[],
       };
 
       const headers = new Headers();
@@ -70,11 +71,12 @@ export const handler: Handlers = {
       await addPerson(data);
 
       headers.set("location", "/personlist");
-      return new Response(null, {
-        status: 303, // "See Other"
+      return new Response("", {
+        status: 201, // "See Other"
         headers,
       });
     } catch (error) {
+      console.error(error);
       throw new Error("Error adding person");
     }
   },

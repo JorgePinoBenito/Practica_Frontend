@@ -59,6 +59,18 @@
       }
     }
 
+    textarea {
+      height: 10rem;
+      padding: 0.5rem;
+      font-size: 1.125rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.5rem;
+      :focus {
+        outline: none;
+        border-color: #86efac;
+      }
+    }
+
     button {
       padding: 0.5rem 1rem;
       font-size: 1.125rem;

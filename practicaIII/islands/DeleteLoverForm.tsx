@@ -23,7 +23,7 @@ export const DeleteForm: FunctionComponent = () => {
     }
 
     try {
-      const response = await fetch("/deleteperson", {
+      const response = await fetch("/deletelover", {
         method: "DELETE",
         body: formData,
       });
@@ -38,7 +38,6 @@ export const DeleteForm: FunctionComponent = () => {
         setSuccessMessage("");
       }
     } catch (error) {
-      console.error(error);
       setError("Error deleting person");
       setSuccessMessage("");
     }
@@ -47,7 +46,7 @@ export const DeleteForm: FunctionComponent = () => {
   return (
     <div class="deleteform">
       <h1>Delete lover</h1>
-      <form action="/deleteperson" method="DELETE" onSubmit={submitHandler}>
+      <form action="/deletelover" method="DELETE" onSubmit={submitHandler}>
         <div>
           <label htmlFor="name">Name</label>
         </div>

@@ -6,6 +6,7 @@ import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $_layout from "./routes/_layout.tsx";
 import * as $addlover from "./routes/addlover.tsx";
+import * as $deletecomment from "./routes/deletecomment.tsx";
 import * as $deletelover from "./routes/deletelover.tsx";
 import * as $filterlovers from "./routes/filterlovers.tsx";
 import * as $index from "./routes/index.tsx";
@@ -13,10 +14,11 @@ import * as $login from "./routes/login.tsx";
 import * as $lovername from "./routes/lovername.tsx";
 import * as $loverslist from "./routes/loverslist.tsx";
 import * as $postcomment from "./routes/postcomment.tsx";
-import * as $DeleteForm from "./islands/DeleteForm.tsx";
+import * as $AddForm from "./islands/AddForm.tsx";
+import * as $DeleteCommentForm from "./islands/DeleteCommentForm.tsx";
+import * as $DeleteLoverForm from "./islands/DeleteLoverForm.tsx";
 import * as $LoginForm from "./islands/LoginForm.tsx";
 import * as $PostCommentForm from "./islands/PostCommentForm.tsx";
-import * as $RegisterForm from "./islands/RegisterForm.tsx";
 import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -25,6 +27,7 @@ const manifest = {
     "./routes/_app.tsx": $_app,
     "./routes/_layout.tsx": $_layout,
     "./routes/addlover.tsx": $addlover,
+    "./routes/deletecomment.tsx": $deletecomment,
     "./routes/deletelover.tsx": $deletelover,
     "./routes/filterlovers.tsx": $filterlovers,
     "./routes/index.tsx": $index,
@@ -34,10 +37,11 @@ const manifest = {
     "./routes/postcomment.tsx": $postcomment,
   },
   islands: {
-    "./islands/DeleteForm.tsx": $DeleteForm,
+    "./islands/AddForm.tsx": $AddForm,
+    "./islands/DeleteCommentForm.tsx": $DeleteCommentForm,
+    "./islands/DeleteLoverForm.tsx": $DeleteLoverForm,
     "./islands/LoginForm.tsx": $LoginForm,
     "./islands/PostCommentForm.tsx": $PostCommentForm,
-    "./islands/RegisterForm.tsx": $RegisterForm,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

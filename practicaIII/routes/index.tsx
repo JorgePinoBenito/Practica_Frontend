@@ -15,13 +15,17 @@ export const handler: Handlers = {
 export default function Home({ data }: PageProps<Data>) {
   return (
     <div class="index">
-      <div>
+      <div class="mensaje_login">
         You currently {data.isAllowed ? "are" : "are not"} logged in.
       </div>
 
-      <a href="/login">Login</a>
+      <a href="/login">
+        <button>Login</button>
+      </a>
       <br />
-      <a href="/addlover">Register</a>
+      <a href="/addlover">
+        <button>Register</button>
+      </a>
     </div>
   );
 }

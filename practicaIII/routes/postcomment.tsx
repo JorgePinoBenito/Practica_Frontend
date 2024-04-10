@@ -62,7 +62,7 @@ export const handler: Handlers = {
       console.log(data.name);
 
       await postComment(data.user, data.password, data.message, data.name);
-      return new Response("Comment added successfully", { status: 200 });
+      return new Response("Comment added successfully", { status: 201 });
     } catch (error) {
       console.error(error);
       return new Response("Error adding comment", { status: 500 });
@@ -73,7 +73,6 @@ export const handler: Handlers = {
 const Page = () => {
   return (
     <div class="postcomment">
-      <h1>Post comment</h1>
       <PostCommentForm />
     </div>
   );

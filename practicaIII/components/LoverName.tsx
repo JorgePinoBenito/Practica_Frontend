@@ -1,26 +1,37 @@
 import { FunctionComponent } from "preact";
 import { Lover } from "../types.ts";
+import { Comment } from "../types.ts";
 
 const LoverName: FunctionComponent<{ lover: Lover }> = (
   { lover },
 ) => {
   return (
-    <div class="heroename">
+    <div class="lovername">
       <a href={`/lovername?name=${lover.name}`}>{lover.name}</a>
 
       <img src={lover.photo} alt={lover.name} />
 
-      <p>Age: {lover.age}</p>
+      <p>
+        <strong>Age:</strong>
+        {lover.age}
+      </p>
 
-      <p>Sex: {lover.sex}</p>
-      <p>Description: {lover.description}</p>
-      <p>Hobbies: {lover.hobbies.join(", ")}</p>
-
-      <p>Comments:</p>
+      <p>
+        <strong>Sex:</strong> {lover.sex}
+      </p>
+      <p>
+        <strong>Description:</strong> {lover.description}
+      </p>
+      <p>
+        <strong>Hobbies:</strong> {[lover.hobbies].join(", ")}
+      </p>
+      <p>
+        <strong>Comments:</strong>
+      </p>
       <ol>
-        {lover.comments.map((c) => (
-          <li key={c}>
-            {c.user}: {c.message}
+        {[lover.comments].flat().map((comment: Comment) => (
+          <li key={comment}>
+            <strong>{comment.user}:</strong> {comment.message}
             {" "}
           </li>
         ))}

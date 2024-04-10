@@ -1,6 +1,6 @@
 import { FunctionComponent, h } from "preact";
 import { FreshContext, Handlers } from "$fresh/server.ts";
-import DeleteForm from "../islands/DeleteForm.tsx";
+import DeleteForm from "../islands/DeleteLoverForm.tsx";
 import {
   Cookie,
   deleteCookie,
@@ -51,18 +51,16 @@ export const handler: Handlers = {
       });
 
       await deletePerson(data.name, data.password);
-      console.log("Persona eliminada correctamente");
 
-      return new Response(null, {
-        status: 302,
+      return new Response("", {
+        status: 201,
         //redirect to the home page
         headers: {
-          location: "/",
+          Location: "/",
         },
       });
     } catch (error) {
-      console.error("Error deleting person:", error);
-      throw error;
+      throw new Error("Error deleting person");
     }
   },
 };

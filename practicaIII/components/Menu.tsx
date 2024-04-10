@@ -49,7 +49,7 @@ const Menu: FunctionComponent<MenuProps> = ({ selected }) => {
       </a>
 
       <a
-        href="/eliminarcomentarios"
+        href="/deletecomment"
         class={selected === "Eliminar comentarios de otro usuario en tu perfil"
           ? "selected"
           : ""}

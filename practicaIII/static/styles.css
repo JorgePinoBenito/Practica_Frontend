@@ -3,11 +3,11 @@
 @import url("/loverslist.css");
 @import url("/lovername.css");
 @import url("/addform.css");
-@import url("/deleteform.css");
-@import url("/filter.css");
+@import url("/deleteloverform.css");
 @import url("/loginform.css");
 @import url("/postcommentform.css");
 @import url("index.css");
+@import url("/deletecommentform.css");
 
 h1 {
   margin-bottom: 20px;
@@ -25,18 +25,17 @@ body {
   background-color: #f8f9fa;
 }
 
-/* styles.css */
 .filterlovers {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: Arial, sans-serif; /* Utiliza una fuente genérica */
+  font-family: Arial, sans-serif;
 }
 
 .filterlovers h1 {
-  font-size: 24px; /* Tamaño del encabezado */
-  margin-bottom: 20px; /* Margen inferior para separar el encabezado del formulario */
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 .filterlovers form {
@@ -46,31 +45,31 @@ body {
 }
 
 .filterlovers input[type="text"] {
-  padding: 8px 10px; /* Añade espacio interno al input */
-  margin-bottom: 10px; /* Margen inferior */
-  border: 1px solid #ccc; /* Añade un borde gris */
-  border-radius: 4px; /* Añade bordes redondeados */
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   width: 300px;
 }
 
 .filterlovers input[type="text"]:focus {
-  outline: none; /* Elimina el resaltado del input al hacer focus */
-  border-color: #007bff; /* Cambia el color del borde al hacer focus */
+  outline: none;
+  border-color: #007bff;
 }
 
 .filterlovers button {
-  padding: 8px 20px; /* Añade espacio interno al botón */
-  border: none; /* Elimina el borde */
-  background-color: #007bff; /* Color de fondo azul */
-  color: #fff; /* Color de texto blanco */
-  border-radius: 4px; /* Añade bordes redondeados */
-  cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+  padding: 8px 20px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .filterlovers button:hover {
-  background-color: green; /* Cambia el color de fondo al pasar por encima */
+  background-color: green;
 }
 
 .filterlovers button:focus {
-  outline: none; /* Elimina el resaltado al hacer focus */
+  outline: none;
 }

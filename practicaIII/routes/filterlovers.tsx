@@ -29,7 +29,10 @@ const filterLovers = (lovers: Lover[], searchQuery: string): Lover[] => {
       lover.name.toLowerCase().includes(query) ||
       lover.age.toString() === query || // Filtrar por edad
       lover.sex.toLowerCase() === query || // Filtrar por sexo
-      lover.hobbies.some((hobby) => hobby.toLowerCase().includes(query)), // Filtrar por hobbies
+      // Filtrar por hobbies asi
+      [lover.hobbies].flat().some((hobby) =>
+        hobby.toLowerCase().includes(query)
+      ),
   );
 };
 
@@ -44,6 +47,7 @@ export const handler: Handlers = {
       return ctx.render(filteredLovers);
     } catch (error) {
       console.error(error);
+      console.error("Error occurred during route handling:", error);
       throw new Error("Error");
     }
   },

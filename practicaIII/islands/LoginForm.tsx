@@ -1,10 +1,6 @@
 //crea un formulario de login
 
 import { FunctionComponent, h } from "preact";
-import { Heroe } from "../types.ts";
-import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
-import Axios from "npm:axios";
-import HeroesList from "../components/LoversList.tsx";
 import { useState } from "preact/hooks";
 import { JSX } from "preact";
 
@@ -52,7 +48,7 @@ export const LoginForm: FunctionComponent = () => {
   return (
     <div class="loginform">
       <h1>Login</h1>
-      <form action="/addperson" method="POST" onSubmit={submitHandler}>
+      <form action="/login" method="POST" onSubmit={submitHandler}>
         <div>
           <label htmlFor="name">Name</label>
         </div>

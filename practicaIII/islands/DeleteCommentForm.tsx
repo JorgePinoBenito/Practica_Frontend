@@ -1,21 +1,14 @@
-/*haz un formulario para
-
-POST /:name/comment
-Adds a comment to the lover's profile.
-Requires user, password, and message fields in the request body. (User from which the comment is made)
-Requires the name field in the request parameters. (User to comment on)
-Requires the password field in the request body for authentication.*/
-
-import { FunctionComponent, h, JSX } from "preact";
+import { FunctionComponent, h } from "preact";
 import { useState } from "preact/hooks";
+import { JSX } from "preact";
 
-export const PostCommentForm: FunctionComponent = () => {
+export const DeleteCommentForm: FunctionComponent = () => {
   const [error, setError] = useState<string>("");
   const [successMessage, setSuccessMessage] = useState<string>("");
   const [user, setUser] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [message, setMessage] = useState<string>("");
+  const [user_password, setUser_Password] = useState<string>("");
   const [name, setName] = useState<string>("");
+  const [name_password, setName_Password] = useState<string>("");
 
   const submitHandler = async (
     e: JSX.TargetedEvent<HTMLFormElement, Event>,
@@ -23,50 +16,52 @@ export const PostCommentForm: FunctionComponent = () => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("user", user);
-    formData.append("password", password);
-    formData.append("message", message);
+    formData.append("user_password", user_password);
     formData.append("name", name);
+    formData.append("name_password", name_password);
 
-    if (user === "" || password === "" || message === "" || name === "") {
+    if (
+      user === "" || user_password === "" || name === "" || name_password === ""
+    ) {
       setError("All fields are required");
       setSuccessMessage("");
       return;
     }
 
     try {
-      const response = await fetch(`/postcomment`, {
+      const response = await fetch(`/deletecomment`, {
         method: "POST",
         body: formData,
       });
 
       if (response.ok) {
-        setSuccessMessage("Comment added successfully!");
+        setSuccessMessage("Comment deleted successfully!");
         setUser("");
-        setPassword("");
-        setMessage("");
+        setUser_Password("");
         setName("");
+        setName_Password("");
         setError("");
       } else {
-        setError("Error adding comment");
+        setError("Error deleting comment");
         setSuccessMessage("");
       }
     } catch (error) {
       console.error(error);
-      setError("Error adding comment");
+      setError("Error deleting comment");
       setSuccessMessage("");
     }
   };
 
   return (
-    <div class="postcommentform">
-      <h1>Post comment</h1>
+    <div class="deletecommentform">
+      <h1>Delete comment</h1>
       <form
-        action="/postcomment"
+        action="/deletecomment"
         method="POST"
         onSubmit={submitHandler}
       >
         <div>
-          <label htmlFor="user">User</label>
+          <label for="user">User</label>
         </div>
         <div>
           <input
@@ -78,30 +73,19 @@ export const PostCommentForm: FunctionComponent = () => {
           />
         </div>
         <div>
-          <label htmlFor="password">Password</label>
+          <label for="user_password">Password</label>
         </div>
         <div>
           <input
             onFocus={(e) => setError("")}
-            onInput={(e) => setPassword(e.currentTarget.value)}
+            onInput={(e) => setUser_Password(e.currentTarget.value)}
             type="password"
-            id="password"
-            name="password"
+            id="user_password"
+            name="user_password"
           />
         </div>
         <div>
-          <label htmlFor="message">Message</label>
-        </div>
-        <div>
-          <textarea
-            onFocus={(e) => setError("")}
-            onInput={(e) => setMessage(e.currentTarget.value)}
-            id="message"
-            name="message"
-          />
-        </div>
-        <div>
-          <label htmlFor="name">Name</label>
+          <label for="name">Name</label>
         </div>
         <div>
           <input
@@ -113,19 +97,32 @@ export const PostCommentForm: FunctionComponent = () => {
           />
         </div>
         <div>
+          <label for="name_password">Password</label>
+        </div>
+        <div>
+          <input
+            onFocus={(e) => setError("")}
+            onInput={(e) => setName_Password(e.currentTarget.value)}
+            type="password"
+            id="name_password"
+            name="name_password"
+          />
+        </div>
+        <div>
           <button type="submit" disabled={error !== ""} class="btn">
-            Post comment
+            Delete comment
           </button>
         </div>
+
         <div>
           <button
             type="reset"
             class="reset"
             onClick={(e) => {
               setName("");
-              setPassword("");
-              setMessage("");
+              setName_Password("");
               setUser("");
+              setUser_Password("");
               setError("");
             }}
           >
@@ -142,4 +139,4 @@ export const PostCommentForm: FunctionComponent = () => {
   );
 };
 
-export default PostCommentForm;
+export default DeleteCommentForm;

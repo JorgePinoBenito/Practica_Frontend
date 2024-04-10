@@ -40,7 +40,7 @@ export const handler: Handlers = {
 
 const Page = (props: PageProps<Lover>) => {
   return (
-    <div class="personname">
+    <div class="lovername">
       <h1>Lover</h1>
       <LoverName lover={props.data} />
     </div>

@@ -1,8 +1,4 @@
 import { FunctionComponent, h } from "preact";
-import { Lover } from "../types.ts";
-import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
-import Axios from "npm:axios";
-import HeroesList from "../components/LoversList.tsx";
 import { useState } from "preact/hooks";
 import { JSX } from "preact";
 
@@ -49,7 +45,7 @@ export const RegisterForm: FunctionComponent = () => {
     }
 
     try {
-      const response = await fetch("/addperson", {
+      const response = await fetch("/addlover", {
         method: "POST",
         body: formData,
       });
@@ -81,7 +77,7 @@ export const RegisterForm: FunctionComponent = () => {
     <div class="addform">
       <h1>Add lover</h1>
       <form
-        action="/addperson"
+        action="/addlover"
         method="POST"
         onSubmit={submitHandler}
       >
@@ -173,18 +169,18 @@ export const RegisterForm: FunctionComponent = () => {
             id="photo"
             name="photo"
           />
+        </div>
 
-          <div>
-            <label for="comments">Comments</label>
-          </div>
-          <div>
-            <textarea
-              onFocus={(e) => setError("")}
-              onInput={(e) => setComments(JSON.parse(e.currentTarget.value))}
-              id="comments"
-              name="comments"
-            />
-          </div>
+        <div>
+          <label for="comments">Comments</label>
+        </div>
+        <div>
+          <textarea
+            onFocus={(e) => setError("")}
+            onInput={(e) => setComments(JSON.parse(e.currentTarget.value))}
+            id="comments"
+            name="comments"
+          />
         </div>
         <div>
           <button

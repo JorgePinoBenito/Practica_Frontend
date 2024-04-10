@@ -52,14 +52,14 @@ export const handler: Handlers = {
       ) {
         await login(data);
         headers.set("location", "/personlist");
-        return new Response(null, {
-          status: 303, // "See Other"
+        return new Response("", {
+          status: 201, // "See Other"
           headers,
         });
       } else {
         headers.set("location", "/login");
-        return new Response(null, {
-          status: 303, // "See Other"
+        return new Response("", {
+          status: 201, // "See Other"
           headers,
         });
       }

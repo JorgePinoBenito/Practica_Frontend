@@ -4,7 +4,7 @@ import LoverName from "./LoverName.tsx";
 
 const LoversList: FunctionComponent<{ lovers: Lover[] }> = ({ lovers }) => {
   return (
-    <div class="heroeslist">
+    <div class="loverlist">
       <ul>
         {lovers.map((p) => (
           <li key={p.name}>
