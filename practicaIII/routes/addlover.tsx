@@ -47,22 +47,21 @@ export const handler: Handlers = {
 
       const headers = new Headers();
 
-      // Crear cookies separadas para el nombre de usuario y la contraseña
       setCookie(headers, {
-        name: `username_${data.name}`, // Nombre de la cookie para el nombre de usuario
-        value: data.name, // Valor del nombre de usuario
+        name: `username_${data.name}`,
+        value: data.name,
         maxAge: 120,
-        sameSite: "Lax", // this is important to prevent CSRF attacks
+        sameSite: "Lax",
         domain: url.hostname,
         path: "/",
         secure: true,
       });
 
       setCookie(headers, {
-        name: `password_${data.name}`, // Nombre de la cookie para la contraseña
-        value: data.password, // Valor de la contraseña
+        name: `password_${data.name}`,
+        value: data.password,
         maxAge: 120,
-        sameSite: "Lax", // this is important to prevent CSRF attacks
+        sameSite: "Lax",
         domain: url.hostname,
         path: "/",
         secure: true,
@@ -72,7 +71,7 @@ export const handler: Handlers = {
 
       headers.set("location", "/personlist");
       return new Response("", {
-        status: 201, // "See Other"
+        status: 201,
         headers,
       });
     } catch (error) {

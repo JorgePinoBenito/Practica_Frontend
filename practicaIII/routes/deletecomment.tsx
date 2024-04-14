@@ -14,12 +14,6 @@ type FormData = {
   name_password: string;
 };
 
-/*DELETE /:name/comment
-Deletes comments made by a specific user from the lover's profile.
-Requires user, password fields in the request body.
-Requires the name field in the request parameters.
-Requires the password field in the request body for authentication.*/
-
 const deleteComment = async (
   user: string,
   user_password: string,
@@ -74,7 +68,6 @@ export const handler: Handlers = {
 
       return new Response("", {
         status: 201,
-        //redirect to the home page
         headers: {
           Location: "/",
         },

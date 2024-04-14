@@ -28,7 +28,6 @@ export const RegisterForm: FunctionComponent = () => {
     formData.append("photo", photo);
     formData.append("comments", JSON.stringify(comments));
 
-    //compronbar que los campos no esten vacios
     if (
       name === "" ||
       password === "" ||
@@ -131,7 +130,7 @@ export const RegisterForm: FunctionComponent = () => {
             <option value="">Todos</option>
             <option value="male">Masculino</option>
             <option value="female">Femenino</option>
-            <option value="other">Otros</option> {/* Added "Otros" */}
+            <option value="other">Otros</option>
           </select>
         </div>
 

@@ -33,8 +33,6 @@ export const handler: Handlers = {
 };
 
 const Page = (props: PageProps<Lover[]>) => {
-  //comprobar si esta logeado
-
   return (
     <div class="loverlist">
       <h1>Lovers</h1>

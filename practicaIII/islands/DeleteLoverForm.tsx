@@ -1,4 +1,3 @@
-// DeleteForm.tsx
 import { FunctionComponent, h, JSX } from "preact";
 import { useState } from "preact/hooks";
 

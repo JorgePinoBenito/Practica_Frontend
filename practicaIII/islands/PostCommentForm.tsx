@@ -1,11 +1,3 @@
-/*haz un formulario para
-
-POST /:name/comment
-Adds a comment to the lover's profile.
-Requires user, password, and message fields in the request body. (User from which the comment is made)
-Requires the name field in the request parameters. (User to comment on)
-Requires the password field in the request body for authentication.*/
-
 import { FunctionComponent, h, JSX } from "preact";
 import { useState } from "preact/hooks";
 

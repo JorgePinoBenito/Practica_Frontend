@@ -54,7 +54,6 @@ export const handler: Handlers = {
 
       return new Response("", {
         status: 201,
-        //redirect to the home page
         headers: {
           Location: "/",
         },

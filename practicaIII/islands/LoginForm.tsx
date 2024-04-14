@@ -1,5 +1,3 @@
-//crea un formulario de login
-
 import { FunctionComponent, h } from "preact";
 import { useState } from "preact/hooks";
 import { JSX } from "preact";

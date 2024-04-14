@@ -27,9 +27,8 @@ const filterLovers = (lovers: Lover[], searchQuery: string): Lover[] => {
   return lovers.filter(
     (lover) =>
       lover.name.toLowerCase().includes(query) ||
-      lover.age.toString() === query || // Filtrar por edad
-      lover.sex.toLowerCase() === query || // Filtrar por sexo
-      // Filtrar por hobbies asi
+      lover.age.toString() === query ||
+      lover.sex.toLowerCase() === query ||
       [lover.hobbies].flat().some((hobby) =>
         hobby.toLowerCase().includes(query)
       ),
@@ -39,7 +38,6 @@ const filterLovers = (lovers: Lover[], searchQuery: string): Lover[] => {
 export const handler: Handlers = {
   GET: async (req: Request, ctx: FreshContext<unknown, Lover[]>) => {
     try {
-      //haz una peticion a la api y con el array de lovers que te devuelva filtra los lovers que coincidan con la query de busqueda
       const url = new URL(req.url);
       const searchQuery = url.searchParams.get("search") || "";
       const lovers = await fetchData();
